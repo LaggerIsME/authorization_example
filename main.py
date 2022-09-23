@@ -9,6 +9,7 @@ def main():
     age = input(s + 'age: ')
     password = input(s + 'password: ')
     man = User(username, name, surname, age, password)
+    
     #Регистрация
     print(auth.register(man, password))
     #Вход в аккаунт
