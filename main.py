@@ -9,7 +9,10 @@ def main():
     age = input(s + 'age: ')
     password = input(s + 'password: ')
     man = User(username, name, surname, age, password)
-    #print(auth.register(man, password))
-    #print(auth.login(man, password))
+    #Регистрация
+    print(auth.register(man, password))
+    #Вход в аккаунт
+    print(auth.login(man, password))
+    #Смена пароля
     print(auth.change_password(man, password))
 main()
