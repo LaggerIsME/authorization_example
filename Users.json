@@ -1,0 +1,14 @@
+{
+    "lagger": {
+        "name": "Abay",
+        "surname": "Sadykov",
+        "age": "23",
+        "password": "12345678"
+    },
+    "lol": {
+        "name": "Oleg",
+        "surname": "Sadvakasov",
+        "age": "25",
+        "password": "87654321"
+    }
+}
