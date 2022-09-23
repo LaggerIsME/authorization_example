@@ -72,7 +72,6 @@ class Auth():
                             count =+ 1
 
             if(count == len(new_dict.keys())):
-                print(count)
                 return 'You are in account!'
                 
             else:
