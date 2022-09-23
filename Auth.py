@@ -70,14 +70,29 @@ class Auth():
         #Желает ли человек сменить пароль
         answer = input('Do you want change password?[Y/N] ').upper()
         if(answer == 'Y'):
-            new_password = input('Write new password: ')
+            a = input('Write previous password: ')
             with open('Users.json', 'r') as file:
                 #Извлечение изначального словаря
                 data = json.load(file)
+            checker = False
             for i in data:
-                if(i == user.get_username):
-                    data[user.get_username]        
-
+                if(i == user.get_username()):
+                    if(data[i]['password'] == password):
+                        checker = True
+            if(checker):
+                new_password = input('Write new password: ')
+                with open('Users.json', 'r') as file:
+                #Извлечение изначального словаря
+                    data = json.load(file)
+                for i in data:
+                    if(i == user.get_username()):
+                        data[i]['password']  = new_password
+                        with open('Users.json', 'w') as file:
+                        #Загружаю измененный словарь
+                            json.dump(data, file, indent = 4)
+                        return 'The password was changed'
+            else:
+                return 'Fail!'
         elif(answer == 'N'):
             return 'OK!'
         else:

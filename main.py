@@ -11,5 +11,5 @@ def main():
     man = User(username, name, surname, age, password)
     #print(auth.register(man, password))
     #print(auth.login(man, password))
-    print(auth.change_password())
+    print(auth.change_password(man, password))
 main()
