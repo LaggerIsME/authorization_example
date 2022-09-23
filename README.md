@@ -14,13 +14,16 @@ Use try except at any task.
 reate simple registration & authentication system using JSON files and Python OOP.
 
 Task 1 [35%]
+
 User attributes:
 1. name
 2. surname
 3. age
 4. hashed password
 5. getters & and setters (you can use @property)
+
 Task 2 [35%]
+
 Auth attributes:
 1. register()
 2. login()
