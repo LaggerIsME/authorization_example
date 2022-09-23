@@ -3,20 +3,12 @@ import json
 class Auth():
 
     #Метод регистрации
-    def register(self):
-        #Ввод данных в объект пользователя
-        s = 'Print your '
-        username = input(s + 'username: ')
-        name = input(s + 'name: ')
-        surname = input(s + 'surname: ')
-        age = input(s + 'age: ')
-        password = input(s + 'password: ')
-
+    def register(self, user, password):
         #Создание словаря для записи его в json-файл
-        new_dict = { username:{
-                'name' : name, 
-                'surname' : surname, 
-                'age' : age, 
+        new_dict = { user.get_username():{
+                'name' : user.get_name(), 
+                'surname' : user.get_surname(), 
+                'age' : user.get_age(), 
                 'password' : password}
         }
 
@@ -32,24 +24,16 @@ class Auth():
         return 'User was registered!'
 
     #Метод входа в аккаунт    
-    def login(self):
+    def login(self, user, password):
         #Желает ли человек войти
-        answer = input('Do you want login?[Y/N]').upper()
+        answer = input('Do you want login?[Y/N] ').upper()
         if(answer == 'Y' ):
 
-            #Запрос информации
-            s = 'Print your '
-            username = input(s + 'username: ')
-            name = input(s + 'name: ')
-            surname = input(s + 'surname: ')
-            age = input(s + 'age: ')
-            password = input(s + 'password: ')
-            
             #Значения входящего
-            new_dict = {username:{
-                'name' : name, 
-                'surname' : surname, 
-                'age' : age, 
+            new_dict = {user.get_username():{
+                'name' : user.get_name(), 
+                'surname' : user.get_surname(), 
+                'age' : user.get_age(), 
                 'password' : password
             }}
             
@@ -67,12 +51,10 @@ class Auth():
                     for key, value in data[i].items():
                         #dict[наружний ключ][внутренний ключ]
                         if(value == new_dict[next(iter(new_dict))][key]):
-                            print(value)
-                            print(new_dict[next(iter(new_dict))][key])
-                            count =+ 1
+                            count += 1
 
-            if(count == len(new_dict.keys())):
-                return 'You are in account!'
+            if(count == len(new_dict[next(iter(new_dict))].keys())):
+                return 'You are in your account!'
                 
             else:
                 return 'Fail!'
@@ -83,5 +65,23 @@ class Auth():
         else:
             return 'Fail!'
     
+    #Метод смены пароля
+    def change_password(self, user, password):
+        #Желает ли человек сменить пароль
+        answer = input('Do you want change password?[Y/N] ').upper()
+        if(answer == 'Y'):
+            new_password = input('Write new password: ')
+            with open('Users.json', 'r') as file:
+                #Извлечение изначального словаря
+                data = json.load(file)
+            for i in data:
+                if(i == user.get_username):
+                    data[user.get_username]        
+
+        elif(answer == 'N'):
+            return 'OK!'
+        else:
+            return 'Fail!'
+
 
         

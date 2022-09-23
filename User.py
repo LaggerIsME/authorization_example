@@ -8,6 +8,7 @@ class User:
         self.__name = name
         self.__surname = surname
         self.__age = age
+        #В пользователе пароль должен быть хэширован
         self.__hashed_password = hash(password)
 
     #Методы для получения значений защищенных полей
