@@ -12,6 +12,7 @@ a string formatting. e.g. f“...”, “...”.format(...), “...% ” % (...)
 All tasks must be done as functions.
 Use try except at any task.
 reate simple registration & authentication system using JSON files and Python OOP.
+
 Task 1 [35%]
 User attributes:
 1. name
@@ -25,8 +26,10 @@ Auth attributes:
 2. login()
 3. change_password()
 4. hash_password()
+
 Task 3 [20%]
 Store all the user related details in JSON file (the file structure is up to you, but it should be
 logical and easy to read)
+
 Task 4 [10%]
 Write a runner function to test and show results of your system in cmd.
